@@ -2,15 +2,15 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import InfoFilled from '../assets/icons/infoFilled.svg';
-import CalendarIcon from '../assets/icons/calendar.svg';
-import AboutIcon from '../assets/icons/about.svg';
-import QuestionIcon from '../assets/icons/question.svg';
-import HeartIcon from '../assets/icons/heart.svg';
+import CalendarIcon from '../../assets/icons/calender.svg';
+import AboutIcon from '../../assets/icons/about.svg';
+import QuestionIcon from '../../assets/icons/about.svg';
+import HeartIcon from '../../assets/icons/heart.svg';
 
 interface DoctorCardProps {
-  image: any;
-  name: string;
-  specialty: string;
+  image?: any;
+  name?: string;
+  specialty?: string;
 }
 
 const ICON_PROPS = {
@@ -32,7 +32,7 @@ const DoctorCardV2: React.FC<DoctorCardProps> = ({
       {/* Information */}
       <View style={{ flex: 1 }}>
         {/* Name + Specialty */}
-        <View style={styles.textBox}>
+        <View>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.specialty}>{specialty}</Text>
         </View>
@@ -46,10 +46,18 @@ const DoctorCardV2: React.FC<DoctorCardProps> = ({
 
           {/* Icons */}
           <View style={styles.iconRow}>
-            <CircleIcon Icon={CalendarIcon} />
-            <CircleIcon Icon={AboutIcon} />
-            <CircleIcon Icon={QuestionIcon} />
-            <CircleIcon Icon={HeartIcon} />
+            <TouchableOpacity>
+              <CircleIcon Icon={CalendarIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <CircleIcon Icon={AboutIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <CircleIcon Icon={QuestionIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <CircleIcon Icon={HeartIcon} />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -72,7 +80,8 @@ const CircleIcon = ({ Icon }: any) => (
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#CAD6FF',
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
     borderRadius: 18,
     flexDirection: 'row',
     alignItems: 'center',
@@ -85,20 +94,14 @@ const styles = StyleSheet.create({
     borderRadius: 40,
   },
 
-  textBox: {
-    backgroundColor: '#FFFFFF',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 13,
-  },
-
   name: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '500',
     color: '#2260FF',
   },
 
   specialty: {
+    fontWeight: '300',
     fontSize: 13,
     marginTop: 2,
     color: '#000',
@@ -113,15 +116,14 @@ const styles = StyleSheet.create({
 
   infoButton: {
     backgroundColor: '#2260FF',
-    paddingVertical: 6,
-    paddingHorizontal: 16,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
     borderRadius: 20,
   },
 
   infoText: {
     color: '#FFF',
-    fontSize: 13,
-    fontWeight: '500',
+    fontSize: 15,
   },
 
   iconRow: {

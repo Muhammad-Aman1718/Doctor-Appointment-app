@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-import StarIcon from '../assets/icons/star.svg';
-import CommentIcon from '../assets/icons/comment.svg';
-import AboutIcon from '../assets/icons/about.svg';
-import HeartIcon from '../assets/icons/heart.svg';
+import StarIcon from '../../assets/icons/star.svg';
+import CommentIcon from '../../assets/icons/comment.svg';
+import AboutIcon from '../../assets/icons/about.svg';
+import HeartIcon from '../../assets/icons/heart.svg';
 
 interface DoctorCardProps {
   image: any;

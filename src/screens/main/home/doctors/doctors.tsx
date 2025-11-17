@@ -12,6 +12,8 @@ import FilterIcon from '../../../../assets/icons/filter.svg';
 import Screen from '../../../../components/common/Screen';
 import DoctorCardV2 from '../../../../components/doctorCard/DoctorCardV2';
 
+import DoctorImg from '../../../../assets/imgs/doctorImg (2).png';
+
 const Doctors = () => {
   return (
     <Screen>
@@ -39,10 +41,14 @@ const Doctors = () => {
           </TouchableOpacity>
         </View>
 
-        <View>
-          <DoctorCardV2 />
-          <DoctorCardV2 />
-          <DoctorCardV2 />
+        <View style={styles.cardContainer}>
+          <DoctorCardV2
+            image={DoctorImg}
+            name="Dr. Alexander Bennett, Ph.D."
+            specialty="Dermato-Genetics"
+          />
+          <DoctorCardV2 image={DoctorImg} name="" />
+          <DoctorCardV2 image={DoctorImg} name="" />
         </View>
       </View>
     </Screen>
@@ -55,6 +61,10 @@ const styles = StyleSheet.create({
   Container: {
     paddingHorizontal: 20,
     paddingTop: 10,
+  },
+  cardContainer: {
+    marginTop: 20,
+    rowGap: 15,
   },
   searchBar: {
     flexDirection: 'row',
