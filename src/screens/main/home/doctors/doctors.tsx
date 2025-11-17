@@ -1,12 +1,84 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import CustomHeader from '../../../../components/CustomHeader';
+import SearchIcon from '../../../../assets/icons/search.svg';
+import FilterIcon from '../../../../assets/icons/filter.svg';
+import Screen from '../../../../components/common/Screen';
+import DoctorCardV2 from '../../../../components/doctorCard/DoctorCardV2';
 
 const Doctors = () => {
   return (
-    <View>
-      <Text>Doctors</Text>
-    </View>
+    <Screen>
+      <CustomHeader title="Doctors" />
+      <View style={styles.Container}>
+        {/* Search Bar */}
+        <View style={styles.searchBar}>
+          <TouchableOpacity style={styles.filterIcon}>
+            <FilterIcon width={18} height={18} stroke="#2260FF" />
+          </TouchableOpacity>
+
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search..."
+            placeholderTextColor="#000"
+          />
+
+          <TouchableOpacity style={styles.searchIcon}>
+            <SearchIcon
+              width={18}
+              height={18}
+              stroke="#2260FF"
+              strokeWidth={0.3}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <DoctorCardV2 />
+          <DoctorCardV2 />
+          <DoctorCardV2 />
+        </View>
+      </View>
+    </Screen>
   );
 };
 
 export default Doctors;
+
+const styles = StyleSheet.create({
+  Container: {
+    paddingHorizontal: 20,
+    paddingTop: 10,
+  },
+  searchBar: {
+    flexDirection: 'row',
+    backgroundColor: '#CAD6FF',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    height: 40,
+  },
+
+  filterIcon: {
+    backgroundColor: '#fff',
+    padding: 6,
+    borderRadius: 12,
+  },
+
+  searchInput: {
+    flex: 1,
+    paddingHorizontal: 10,
+    fontSize: 13,
+    color: '#000',
+  },
+
+  searchIcon: {
+    paddingLeft: 6,
+  },
+});

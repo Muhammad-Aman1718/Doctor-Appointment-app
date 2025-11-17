@@ -17,7 +17,9 @@ import FilterIcon from '../../../assets/icons/filter.svg';
 import DoctorIcon from '../../../assets/icons/doctors.svg';
 import ProfileImg from '../../../assets/imgs/profileImg.png';
 import Screen from '../../../components/common/Screen';
-import DoctorCard from '../../../components/DoctorCard';
+import DoctorCard from '../../../components/doctorCard/DoctorCard';
+
+import DoctorImg from '../../../assets/imgs/doctorImg.png';
 
 const HomeHeader = () => {
   const navigation = useAppNavigation();
@@ -123,16 +125,29 @@ const HomeHeader = () => {
               </TouchableOpacity>
             </View>
           </View>
-
-          <View>
-            <DoctorCard
-              image={require('../assets/imgs/doctor1.png')}
-              name="Dr. Olivia Turner, M.D."
-              specialty="Dermato-Endocrinology"
-              rating={5}
-              reviews={60}
-            />
-          </View>
+        </View>
+        <View style={styles.allDoctors}>
+          <DoctorCard
+            image={DoctorImg}
+            name="Dr. Olivia Turner, M.D."
+            specialty="Dermato-Endocrinology"
+            rating={5}
+            reviews={60}
+          />
+          <DoctorCard
+            image={DoctorImg}
+            name="Dr. Olivia Turner, M.D."
+            specialty="Dermato-Endocrinology"
+            rating={5}
+            reviews={60}
+          />
+          <DoctorCard
+            image={DoctorImg}
+            name="Dr. Olivia Turner, M.D."
+            specialty="Dermato-Endocrinology"
+            rating={5}
+            reviews={60}
+          />
         </View>
       </View>
     </Screen>
@@ -238,5 +253,10 @@ const styles = StyleSheet.create({
 
   searchIcon: {
     paddingLeft: 6,
+  },
+
+  allDoctors: {
+    marginTop: 15,
+    rowGap: 10,
   },
 });
