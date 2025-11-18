@@ -6,6 +6,7 @@ import CalendarIcon from '../../assets/icons/calender.svg';
 import AboutIcon from '../../assets/icons/about.svg';
 import QuestionIcon from '../../assets/icons/about.svg';
 import HeartIcon from '../../assets/icons/heart.svg';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 interface DoctorCardProps {
   image?: any;
@@ -24,6 +25,8 @@ const DoctorCardV2: React.FC<DoctorCardProps> = ({
   name,
   specialty,
 }) => {
+  const navigation = useAppNavigation();
+
   return (
     <View style={styles.container}>
       {/* Doctor Image */}
@@ -40,24 +43,19 @@ const DoctorCardV2: React.FC<DoctorCardProps> = ({
         {/* Bottom Buttons Row */}
         <View style={styles.bottomRow}>
           {/* Info Button */}
-          <TouchableOpacity style={styles.infoButton}>
+          <TouchableOpacity
+            style={styles.infoButton}
+            onPress={() => navigation.navigate('App', { screen: 'DoctorInfo' })}
+          >
             <Text style={styles.infoText}>Info</Text>
           </TouchableOpacity>
 
           {/* Icons */}
           <View style={styles.iconRow}>
-            <TouchableOpacity>
-              <CircleIcon Icon={CalendarIcon} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <CircleIcon Icon={AboutIcon} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <CircleIcon Icon={QuestionIcon} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <CircleIcon Icon={HeartIcon} />
-            </TouchableOpacity>
+            <CircleIcon Icon={CalendarIcon} />
+            <CircleIcon Icon={AboutIcon} />
+            <CircleIcon Icon={QuestionIcon} />
+            <CircleIcon Icon={HeartIcon} />
           </View>
         </View>
       </View>
@@ -70,9 +68,9 @@ export default DoctorCardV2;
 /* ---------------- Components ---------------- */
 
 const CircleIcon = ({ Icon }: any) => (
-  <View style={styles.circleButton}>
+  <TouchableOpacity style={styles.circleButton}>
     <Icon {...ICON_PROPS} />
-  </View>
+  </TouchableOpacity>
 );
 
 /* ---------------- Styles ---------------- */

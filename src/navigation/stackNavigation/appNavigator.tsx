@@ -5,6 +5,7 @@ import Setting from '../../screens/main/home/setting/setting';
 import Notification from '../../screens/main/home/notification/notification';
 import Doctors from '../../screens/main/home/doctors/doctors';
 import Favorite from '../../screens/main/home/favorite.tsx/favorite';
+import DoctorInfo from '../../screens/main/home/doctors/doctorInfo';
 
 const App = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ const AppNavigator = () => {
       <App.Screen
         name="Favorite"
         component={Favorite}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="DoctorInfo"
+        component={DoctorInfo}
         options={{ headerShown: false }}
       />
     </App.Navigator>
