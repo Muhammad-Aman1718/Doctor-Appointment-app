@@ -51,6 +51,7 @@ const DoctorInfoScreen = () => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
