@@ -42,7 +42,7 @@ const DoctorInfoScreen = () => {
 
         <TouchableOpacity
           style={styles.saveBtn}
-          onPress={() => navigation.replace('Home')}
+          onPress={() => navigation.replace('App', { screen: 'Home' })}
         >
           <Text style={styles.saveText}>Save & Continue</Text>
         </TouchableOpacity>

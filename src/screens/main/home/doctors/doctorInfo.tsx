@@ -25,6 +25,7 @@ import {
   ScrollView,
 } from 'react-native';
 import CustomHeader from '../../../../components/CustomHeader';
+import StarIcon from '../../../../assets/icons/star.svg';
 
 const DoctorInfo = ({ route }) => {
   // Dynamic data (you can pass from navigation)
@@ -52,7 +53,7 @@ const DoctorInfo = ({ route }) => {
       <CustomHeader title="Doctor Info" />
 
       {/* Main Card */}
-      <View style={styles.card}>
+      {/* <View style={styles.card}>
         <View style={styles.topRow}>
           <Image source={{ uri: doctor.avatar }} style={styles.avatar} />
 
@@ -72,7 +73,6 @@ const DoctorInfo = ({ route }) => {
           </View>
         </View>
 
-        {/* Rating + Schedule */}
         <View style={styles.infoRow}>
           <View style={styles.ratingBox}>
             <Text style={styles.ratingStar}>★ {doctor.rating}</Text>
@@ -82,7 +82,6 @@ const DoctorInfo = ({ route }) => {
           <Text style={styles.schedule}>{doctor.schedule}</Text>
         </View>
 
-        {/* Buttons */}
         <View style={styles.btnRow}>
           <TouchableOpacity style={styles.scheduleBtn}>
             <Text style={styles.scheduleBtnText}>Schedule</Text>
@@ -90,6 +89,60 @@ const DoctorInfo = ({ route }) => {
 
           <TouchableOpacity style={styles.iconBtn}>
             <Text style={styles.iconText}>♡</Text>
+          </TouchableOpacity>
+        </View>
+      </View> */}
+
+      <View style={styles.card}>
+        {/* TOP AREA */}
+        <View style={styles.topSection}>
+          {/* Avatar Circle */}
+          <View style={styles.avatarWrapper}>
+            <Image source={{ uri: doctor.avatar }} style={styles.avatarImg} />
+          </View>
+
+          {/* Right Side */}
+          <View style={{ flex: 1 }}>
+            {/* Experience Badge */}
+            <View style={styles.expBadge}>
+              <Text style={styles.expNum}>{doctor.experience} years</Text>
+              <Text style={styles.expLabel}>experience</Text>
+            </View>
+
+            {/* Focus Box */}
+            <View style={styles.focusBox}>
+              <Text style={styles.focusTitle}>Focus:</Text>
+              <Text style={styles.focusText}>{doctor.focus}</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Name */}
+        <View style={styles.name}>
+          <Text style={styles.name}>{doctor.name}</Text>
+          <Text style={styles.specialty}>{doctor.specialty}</Text>
+        </View>
+
+        {/* STATS */}
+        <View style={styles.statsRow}>
+          <View style={styles.statItem}>
+            <StarIcon width={18} height={18} fill="#2260FF" />
+            <Text style={styles.statText}>{doctor.rating}</Text>
+          </View>
+
+          <View style={styles.statItem}>
+            <Text style={styles.statText}>{doctor.reviews}</Text>
+          </View>
+
+          <View style={styles.statItem}>
+            <Text style={styles.statText}>{doctor.schedule}</Text>
+          </View>
+        </View>
+
+        {/* Buttons */}
+        <View style={styles.btnRow}>
+          <TouchableOpacity style={styles.scheduleBtn}>
+            <Text style={styles.scheduleBtnText}>Schedule</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -117,95 +170,147 @@ export default DoctorInfo;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#CAD6FF',
     margin: 15,
-    padding: 15,
-    borderRadius: 20,
-    elevation: 3,
+    padding: 18,
+    borderRadius: 25,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
   },
 
-  topRow: {
+  topSection: {
     flexDirection: 'row',
-    gap: 12,
+    alignItems: 'center',
+    marginBottom: 10,
   },
 
-  avatar: {
-    width: 90,
+  avatarWrapper: {
+    width: 110,
     height: 110,
-    borderRadius: 15,
+    borderRadius: 100,
+    overflow: 'hidden',
+    borderWidth: 4,
+    borderColor: '#C8D8FF',
+    marginRight: 12,
+  },
+
+  avatarImg: {
+    width: '100%',
+    height: '100%',
   },
 
   expBadge: {
-    backgroundColor: '#0B72FF',
-    alignSelf: 'flex-start',
+    backgroundColor: '#2260FF',
     paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-    marginBottom: 5,
+    paddingHorizontal: 15,
+    borderRadius: 18,
+    flexDirection: 'row',
   },
 
-  expText: {
-    color: 'white',
-    fontSize: 11,
-    fontWeight: '600',
-    textAlign: 'center',
+  expNum: {
+    fontSize: 12,
+    color: '#fff',
+    fontWeight: '400',
   },
 
-  name: { fontSize: 16, fontWeight: '700', color: '#073987', marginTop: 3 },
-
-  specialty: { fontSize: 13, color: '#777', marginBottom: 5 },
+  expLabel: { fontSize: 12, color: '#fff', fontWeight: '300', marginLeft: 7 },
 
   focusBox: {
-    backgroundColor: '#E9F0FF',
-    padding: 10,
-    borderRadius: 10,
+    backgroundColor: '#2260FF',
+    padding: 12,
+    borderRadius: 14,
+    marginTop: 5,
   },
 
-  focusText: { fontSize: 12, color: '#555' },
+  focusTitle: {
+    color: 'white',
+    fontWeight: '700',
+    marginBottom: 3,
+  },
 
-  infoRow: {
+  focusText: {
+    color: 'white',
+    fontSize: 12,
+    lineHeight: 18,
+  },
+
+  name: {
+    borderRadius: 14,
+    backgroundColor: '#fff',
+    fontSize: 20,
+    fontWeight: '800',
+    textAlign: 'center',
+    color: '#093A87',
+    marginTop: 10,
+  },
+
+  specialty: {
+    textAlign: 'center',
+    color: '#555',
+    fontSize: 14,
+    marginBottom: 15,
+  },
+
+  statsRow: {
+    borderRadius: 14,
+    backgroundColor: '#fff',
+    paddingVertical: 4,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
+    justifyContent: 'space-around',
+    marginVertical: 10,
+  },
+
+  statItem: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
 
-  ratingBox: {
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    gap: 5,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 20,
-    elevation: 2,
+  star: {
+    fontSize: 18,
+    color: '#0B72FF',
   },
 
-  ratingStar: { color: '#0B72FF', fontWeight: '700' },
-
-  reviews: { color: '#555', fontSize: 12 },
-
-  schedule: { fontSize: 12, color: '#555' },
+  statText: {
+    fontSize: 13,
+    color: '#333',
+    marginLeft: 4,
+  },
 
   btnRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 12,
+    alignItems: 'center',
+    marginTop: 15,
   },
 
   scheduleBtn: {
     backgroundColor: '#0B72FF',
-    paddingVertical: 10,
+    paddingVertical: 12,
     paddingHorizontal: 30,
-    borderRadius: 12,
+    borderRadius: 14,
   },
 
-  scheduleBtnText: { color: 'white', fontWeight: '600' },
+  scheduleBtnText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
 
-  iconBtn: {
+  roundBtn: {
+    width: 45,
+    height: 45,
+    borderRadius: 50,
     borderWidth: 1,
     borderColor: '#ccc',
-    padding: 10,
-    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  roundBtnIcon: {
+    fontSize: 20,
+    color: '#0B72FF',
   },
 
   iconText: { fontSize: 18, color: '#0B72FF' },

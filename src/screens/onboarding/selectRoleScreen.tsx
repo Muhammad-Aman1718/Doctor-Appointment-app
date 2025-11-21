@@ -29,14 +29,9 @@ const SelectRoleScreen = () => {
         disabled={!role}
         onPress={() => {
           if (role === 'patient') {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'Home' }],
-            });
+            navigation.replace('App', { screen: 'Home' });
           } else {
-            navigation.navigate('Onboarding', {
-              screen: 'DoctorInfoScreen',
-            });
+            navigation.navigate('Onboarding', { screen: 'DoctorInfoScreen' });
           }
         }}
       >

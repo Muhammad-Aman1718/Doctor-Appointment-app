@@ -1,17 +1,22 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import Home from '../../screens/main/home/home';
 import Setting from '../../screens/main/home/setting/setting';
 import Notification from '../../screens/main/home/notification/notification';
 import Doctors from '../../screens/main/home/doctors/doctors';
 import Favorite from '../../screens/main/home/favorite.tsx/favorite';
 import DoctorInfo from '../../screens/main/home/doctors/doctorInfo';
+import BottomNavigation from '../bottomNavigation/bottomNavigation';
 
 const App = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
     <App.Navigator>
+      <App.Screen
+        name="BottomNavigation"
+        component={BottomNavigation}
+        options={{ headerShown: false }}
+      />
       <App.Screen
         name="Notification"
         component={Notification}
