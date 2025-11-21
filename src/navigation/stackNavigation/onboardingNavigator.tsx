@@ -8,8 +8,16 @@ const Onboarding = createNativeStackNavigator();
 const OnboardingNavigator = () => {
   return (
     <Onboarding.Navigator>
-      <Onboarding.Screen name="SelectRoleScreen" component={SelectRoleScreen}  />
-      <Onboarding.Screen name="DoctorInfoScreen" component={DoctorInfoScreen}  />
+      <Onboarding.Screen
+        name="SelectRoleScreen"
+        component={SelectRoleScreen}
+        options={{ headerShown: false }}
+      />
+      <Onboarding.Screen
+        name="DoctorInfoScreen"
+        component={DoctorInfoScreen}
+        options={{ headerShown: false }}
+      />
     </Onboarding.Navigator>
   );
 };

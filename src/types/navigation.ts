@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Auth: { screen?: string };
   App: { screen?: string };
+  Onboarding: { screen?: string };
   Home: undefined; // agar koi params nahi bhejne
   Login: undefined;
   Register: undefined;
