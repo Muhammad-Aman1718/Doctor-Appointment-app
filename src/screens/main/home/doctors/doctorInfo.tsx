@@ -116,7 +116,6 @@ const DoctorInfo = ({ route }) => {
             </View>
           </View>
         </View>
-
         {/* Name */}
         <View style={styles.name}>
           <Text style={styles.name}>{doctor.name}</Text>
