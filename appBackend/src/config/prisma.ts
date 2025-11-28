@@ -1,3 +1,5 @@
-import _default = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 
-const prisma = new _default.PrismaClient();
+const prisma = new PrismaClient();
+
+export default prisma;
