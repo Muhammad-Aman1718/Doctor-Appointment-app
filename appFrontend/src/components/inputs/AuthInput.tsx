@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+// import Icon from 'react-native-vector-icons/Feather';
 
 interface AuthInputProps {
   inputTitle?: string;
@@ -32,11 +32,11 @@ const AuthInput: React.FC<AuthInputProps> = ({ inputTitle, placeHolder }) => {
         />
         {(inputTitle == 'Password' || inputTitle == 'Confirm Password') && (
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Icon
+            {/* <Icon
               name={showPassword ? 'eye' : 'eye-off'}
               color="black"
               size={20}
-            />
+            /> */}
           </TouchableOpacity>
         )}
       </View>
