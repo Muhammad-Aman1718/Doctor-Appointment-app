@@ -20,6 +20,7 @@ import Screen from '../../../components/common/Screen';
 import DoctorCard from '../../../components/doctorCard/DoctorCard';
 
 import DoctorImg from '../../../assets/imgs/doctorImg.png';
+import Calendar from '../../../components/calender/Calender';
 
 const HomeHeader = () => {
   const navigation = useAppNavigation();
@@ -126,6 +127,10 @@ const HomeHeader = () => {
             </View>
           </View>
         </View>
+        <View>
+          <Calendar />
+        </View>
+
         <View style={styles.allDoctors}>
           <DoctorCard
             image={DoctorImg}
