@@ -1,225 +1,3 @@
-// import React, { useState } from "react";
-// import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
-// // import Icon from "react-native-vector-icons/MaterialIcons";
-// import {
-//   format,
-//   startOfMonth,
-//   endOfMonth,
-//   eachDayOfInterval,
-//   isSameDay,
-//   addMonths,
-//   subMonths,
-// } from "date-fns";
-
-// const Calendar = () => {
-//   const [currentMonth, setCurrentMonth] = useState(new Date());
-//   const [selectedDay, setSelectedDay] = useState(new Date());
-
-//   const today = new Date();
-
-//   // Generate days of the month
-//   const monthDays = eachDayOfInterval({
-//     start: startOfMonth(currentMonth),
-//     end: endOfMonth(currentMonth),
-//   });
-
-//   // Example Timing / Events (Static Example)
-//   const appointments = [
-//     {
-//       time: "10:00 AM",
-//       doctor: "Dr. Olivia Turner, M.D.",
-//       desc: "Treatment and prevention of skin and photodermatitis.",
-//     },
-//   ];
-
-//   return (
-//     <View style={styles.container}>
-
-//       {/* MONTH HEADER */}
-//       <View style={styles.header}>
-//         <TouchableOpacity onPress={() => setCurrentMonth(subMonths(currentMonth, 1))}>
-//           {/* <Icon name="chevron-left" size={30} /> */}
-//         </TouchableOpacity>
-
-//         <Text style={styles.headerTitle}>{format(currentMonth, "MMMM yyyy")}</Text>
-
-//         <TouchableOpacity onPress={() => setCurrentMonth(addMonths(currentMonth, 1))}>
-//           {/* <Icon name="chevron-right" size={30} /> */}
-//         </TouchableOpacity>
-//       </View>
-
-//       {/* DAYS ROW */}
-//       <View style={styles.weekRow}>
-//         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-//           <Text key={d} style={styles.weekText}>{d}</Text>
-//         ))}
-//       </View>
-
-//       {/* MONTH GRID */}
-//       <View style={styles.grid}>
-//         {monthDays.map((day) => {
-//           const isToday = isSameDay(day, today);
-//           const isSelected = isSameDay(day, selectedDay);
-
-//           return (
-//             <TouchableOpacity
-//               key={day}
-//               style={[
-//                 styles.dayBox,
-//                 isSelected && styles.selectedDay,
-//                 isToday && styles.today,
-//               ]}
-//               onPress={() => setSelectedDay(day)}
-//             >
-//               <Text
-//                 style={[
-//                   styles.dayText,
-//                   isSelected && styles.dayTextSelected,
-//                   isToday && styles.dayTextToday,
-//                 ]}
-//               >
-//                 {format(day, "d")}
-//               </Text>
-//             </TouchableOpacity>
-//           );
-//         })}
-//       </View>
-
-//       {/* SELECTED DATE TITLE */}
-//       <Text style={styles.selectedTitle}>
-//         {format(selectedDay, "d MMMM yyyy")} — Today
-//       </Text>
-
-//       {/* APPOINTMENT CARD */}
-//       {appointments.map((item, i) => (
-//         <View key={i} style={styles.card}>
-//           <Text style={styles.time}>{item.time}</Text>
-
-//           <Text style={styles.docName}>{item.doctor}</Text>
-//           <Text style={styles.desc}>{item.desc}</Text>
-
-//           <View style={styles.iconRow}>
-//             {/* <Icon name="check-circle" size={22} color="#437bff" />
-//             <Icon name="close" size={22} color="#437bff" style={{ marginLeft: 10 }} /> */}
-//           </View>
-//         </View>
-//       ))}
-//     </View>
-//   );
-// };
-
-// export default Calendar;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#e6edff",
-//     paddingTop: 40,
-//     paddingHorizontal: 10,
-//   },
-
-//   header: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     alignItems: "center",
-//     paddingHorizontal: 15,
-//   },
-
-//   headerTitle: {
-//     fontSize: 20,
-//     fontWeight: "bold",
-//   },
-
-//   weekRow: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     paddingVertical: 10,
-//   },
-
-//   weekText: {
-//     width: 40,
-//     textAlign: "center",
-//     color: "#555",
-//   },
-
-//   grid: {
-//     flexDirection: "row",
-//     flexWrap: "wrap",
-//   },
-
-//   dayBox: {
-//     width: "14.28%",
-//     paddingVertical: 12,
-//     alignItems: "center",
-//     justifyContent: "center",
-//     marginVertical: 4,
-//     borderRadius: 10,
-//   },
-
-//   dayText: {
-//     fontSize: 16,
-//     color: "#333",
-//   },
-
-//   selectedDay: {
-//     backgroundColor: "#2f6bff",
-//   },
-
-//   dayTextSelected: {
-//     color: "white",
-//     fontWeight: "bold",
-//   },
-
-//   today: {
-//     borderWidth: 2,
-//     borderColor: "#2f6bff",
-//   },
-
-//   dayTextToday: {
-//     fontWeight: "bold",
-//     color: "#2f6bff",
-//   },
-
-//   selectedTitle: {
-//     marginTop: 20,
-//     textAlign: "center",
-//     fontSize: 16,
-//     fontWeight: "bold",
-//     color: "#2f4fff",
-//   },
-
-//   // CARD
-//   card: {
-//     backgroundColor: "white",
-//     padding: 15,
-//     borderRadius: 20,
-//     marginVertical: 20,
-//   },
-
-//   time: {
-//     color: "#2f4fff",
-//     fontWeight: "bold",
-//     marginBottom: 10,
-//   },
-
-//   docName: {
-//     fontSize: 16,
-//     fontWeight: "bold",
-//     color: "#2f4fff",
-//     marginBottom: 6,
-//   },
-
-//   desc: {
-//     fontSize: 14,
-//     color: "#555",
-//     marginBottom: 15,
-//   },
-
-//   iconRow: {
-//     flexDirection: "row",
-//   },
-// });
-
 import React, { useState } from 'react';
 import {
   View,
@@ -228,7 +6,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-// import Icon from "react-native-vector-icons/MaterialIcons";
+import Icon from '@react-native-vector-icons/material-icons';
 import {
   format,
   startOfMonth,
@@ -270,15 +48,15 @@ const Calendar = () => {
         style={styles.header}
         onPress={() => setShowMonth(!showMonth)}
       >
-        {/* <Icon name="calendar-month" size={26} color={PRIMARY} /> */}
+        <Icon name="calendar-month" size={26} color={PRIMARY} />
         <Text style={styles.headerTitle}>
           {format(currentMonth, 'MMMM yyyy')}
         </Text>
-        {/* <Icon
-          name={showMonth ? "expand-less" : "expand-more"}
+        <Icon
+          name={showMonth ? 'expand-less' : 'expand-more'}
           size={26}
           color={PRIMARY}
-        /> */}
+        />
       </TouchableOpacity>
 
       {/* SHOW FULL MONTH GRID ONLY WHEN OPEN */}
@@ -304,11 +82,11 @@ const Calendar = () => {
                 <Text
                   style={[
                     styles.monthNumber,
-                     isSelected
-                    ? styles.selectedText
-                    : isToday
-                    ? styles.todayText
-                    : styles.againtodayText,
+                    isSelected
+                      ? styles.selectedText
+                      : isToday
+                      ? styles.todayText
+                      : styles.againtodayText,
                     // isSelected && styles.selectedText,
                     // isToday && styles.todayText,
                   ]}
@@ -375,8 +153,13 @@ const Calendar = () => {
         </Text>
 
         <View style={styles.iconRow}>
-          {/* <Icon name="check-circle" size={22} color={PRIMARY} />
-          <Icon name="close" size={22} color={PRIMARY} style={{ marginLeft: 10 }} /> */}
+          <Icon name="check-circle" size={22} color={PRIMARY} />
+          <Icon
+            name="close"
+            size={22}
+            color={PRIMARY}
+            style={{ marginLeft: 10 }}
+          />
         </View>
       </View>
     </View>
