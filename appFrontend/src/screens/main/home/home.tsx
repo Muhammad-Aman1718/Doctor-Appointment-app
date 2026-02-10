@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import ProfileImg from '../../../assets/imgs/profileImg.png';
+import DoctorImg from '../../../assets/imgs/doctorImg.png';
 
 import { useAppNavigation } from '../../../hooks/useAppNavigation';
 import NotificationIcon from '../../../assets/icons/notification.svg';
@@ -15,11 +17,8 @@ import HeartIcon from '../../../assets/icons/heart.svg';
 import SearchIcon from '../../../assets/icons/search.svg';
 import FilterIcon from '../../../assets/icons/filter.svg';
 import DoctorIcon from '../../../assets/icons/doctors.svg';
-import ProfileImg from '../../../assets/imgs/profileImg.png';
 import Screen from '../../../components/common/Screen';
 import DoctorCard from '../../../components/doctorCard/DoctorCard';
-
-import DoctorImg from '../../../assets/imgs/doctorImg.png';
 import Calendar from '../../../components/calender/Calender';
 
 const HomeHeader = () => {

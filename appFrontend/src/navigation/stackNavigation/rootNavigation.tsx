@@ -21,7 +21,7 @@ const RootNavigation = () => {
         />
       ) : (
         <>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Onboarding"
             component={OnboardingNavigator}
             options={{ headerShown: false }}
@@ -30,7 +30,7 @@ const RootNavigation = () => {
             name="Auth"
             component={AuthNavigator}
             options={{ headerShown: false }}
-          />
+          /> */}
           
           <Stack.Screen
             name="App"

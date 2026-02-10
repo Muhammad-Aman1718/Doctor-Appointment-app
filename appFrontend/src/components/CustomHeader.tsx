@@ -119,7 +119,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAppNavigation } from '../hooks/useAppNavigation';
-// import Icon from 'react-native-vector-icons/Entypo';
+import { ChevronLeft } from 'lucide-react-native';
 
 interface CustomHeaderProps {
   title?: string;
@@ -131,12 +131,12 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ title }) => {
     <View style={styles.container}>
       <View style={styles.leftContainer}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          {/* <Icon
-            name="chevron-thin-left"
-            size={24}
+          <ChevronLeft
+            // name="chevron-thin-left"
+            size={30}
             color="#2260FF"
-            style={styles.icon}
-          /> */}
+            // style={styles.icon}
+          />
         </TouchableOpacity>
       </View>
 

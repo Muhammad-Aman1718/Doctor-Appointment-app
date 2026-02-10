@@ -6,6 +6,10 @@ import Doctors from '../../screens/main/home/doctors/doctors';
 import Favorite from '../../screens/main/home/favorite.tsx/favorite';
 import DoctorInfo from '../../screens/main/home/doctors/doctorInfo';
 import BottomNavigation from '../bottomNavigation/bottomNavigation';
+import EditProfile from '../../screens/main/profile/editProfile/editProfile';
+import Payment from '../../screens/main/payment/payment';
+import Help from '../../screens/main/help/help';
+import PrivacyPolicy from '../../screens/main/privacyPolicy/privacyPolicy';
 
 const App = createNativeStackNavigator();
 
@@ -40,6 +44,26 @@ const AppNavigator = () => {
       <App.Screen
         name="DoctorInfo"
         component={DoctorInfo}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="Payment"
+        component={Payment}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="Help"
+        component={Help}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="PrivacyPolicy"
+        component={PrivacyPolicy}
         options={{ headerShown: false }}
       />
     </App.Navigator>
