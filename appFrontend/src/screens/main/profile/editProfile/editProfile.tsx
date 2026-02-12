@@ -80,15 +80,15 @@
 
 // export default EditProfile;
 
-
-
-
-
-
-
-
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from 'react-native';
 import { Pencil } from 'lucide-react-native';
 import Screen from '../../../../components/common/Screen';
 import ProfilePic from '../../../../assets/imgs/profilePic.png';
@@ -98,19 +98,13 @@ import AuthInput from '../../../../components/inputs/AuthInput';
 const EditProfile: React.FC = () => {
   return (
     <Screen>
-      <CustomHeader title="Profile" />
-      
-      <ScrollView 
-        contentContainerStyle={styles.scrollContent} 
-        showsVerticalScrollIndicator={false}
-      >
+        <CustomHeader title="Profile" />
+      <View style={styles.scrollContent}>
+
         {/* Profile Header */}
         <View style={styles.header}>
           <View style={styles.imageWrapper}>
-            <Image
-              source={ProfilePic}
-              style={styles.profileImage}
-            />
+            <Image source={ProfilePic} style={styles.profileImage} />
             <TouchableOpacity style={styles.editBadge} activeOpacity={0.8}>
               <Pencil size={16} color="#FFFFFF" strokeWidth={3} />
             </TouchableOpacity>
@@ -129,8 +123,7 @@ const EditProfile: React.FC = () => {
         <TouchableOpacity style={styles.button} activeOpacity={0.8}>
           <Text style={styles.buttonText}>Update Profile</Text>
         </TouchableOpacity>
-        
-      </ScrollView>
+      </View>
     </Screen>
   );
 };
