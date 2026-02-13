@@ -11,7 +11,7 @@ import {
   Pencil,
 } from 'lucide-react-native';
 import { useAppNavigation } from '../../../hooks/useAppNavigation';
-import MenuItem from '../../../components/buttons/MenuItem';
+import ProfileNavItem from '../../../components/setting/ProfileNavItem';
 import Screen from '../../../components/common/Screen';
 import ProfilePic from '../../../assets/imgs/profilePic.png';
 
@@ -29,39 +29,39 @@ const ProfileScreen = () => {
 
       {/* Menu Items */}
       <View style={styles.menuList}>
-        <MenuItem
+        <ProfileNavItem
           icon={User}
           title="Profile"
           onPress={() => navigation.navigate('App', { screen: 'EditProfile' })}
         />
-        <MenuItem
+        <ProfileNavItem
           icon={Heart}
           title="Favorite"
           onPress={() => navigation.navigate('App', { screen: 'Favorite' })}
         />
-        <MenuItem
+        <ProfileNavItem
           icon={Wallet}
           title="Payment Method"
           onPress={() => navigation.navigate('App', { screen: 'Payment' })}
         />
-        <MenuItem
+        <ProfileNavItem
           icon={Lock}
           title="Privacy Policy"
           onPress={() =>
             navigation.navigate('App', { screen: 'PrivacyPolicy' })
           }
         />
-        <MenuItem
+        <ProfileNavItem
           icon={Settings}
           title="Settings"
           onPress={() => navigation.navigate('App', { screen: 'Setting' })}
         />
-        <MenuItem
+        <ProfileNavItem
           icon={CircleHelp}
           title="Help"
           onPress={() => navigation.navigate('App', { screen: 'Help' })}
         />
-        <MenuItem
+        <ProfileNavItem
           icon={LogOut}
           title="Logout"
           showArrow={false}

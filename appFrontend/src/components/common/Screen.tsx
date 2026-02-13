@@ -1,3 +1,48 @@
+// // import React from 'react';
+// // import {
+// //   ScrollView,
+// //   KeyboardAvoidingView,
+// //   Platform,
+// //   View,
+// //   StyleSheet,
+// // } from 'react-native';
+
+// // interface ScreenProps {
+// //   children: React.ReactNode;
+// //   scroll?: boolean; // optional prop — agar scroll chahiye ya nahi
+// //   style?: object;
+// // }
+
+// // const Screen: React.FC<ScreenProps> = ({ children, scroll = true, style }) => {
+// //   const Wrapper = scroll ? ScrollView : View;
+
+// //   return (
+// //     <KeyboardAvoidingView
+// //       style={{ flex: 1 }}
+// //       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+// //     >
+// //       <Wrapper
+// //         style={[styles.container, style]}
+// //         contentContainerStyle={scroll ? styles.contentContainer : undefined}
+// //         showsVerticalScrollIndicator={false}
+// //       >
+// //         {children}
+// //       </Wrapper>
+// //     </KeyboardAvoidingView>
+// //   );
+// // };
+
+// // const styles = StyleSheet.create({
+// //   container: {
+// //     flex: 1,
+// //   },
+// //   contentContainer: {
+// //     flexGrow: 1,
+// //   },
+// // });
+
+// // export default Screen;
+
 // import React from 'react';
 // import {
 //   ScrollView,
@@ -5,11 +50,14 @@
 //   Platform,
 //   View,
 //   StyleSheet,
+//   TouchableWithoutFeedback,
+//   Keyboard,
 // } from 'react-native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
 // interface ScreenProps {
 //   children: React.ReactNode;
-//   scroll?: boolean; // optional prop — agar scroll chahiye ya nahi
+//   scroll?: boolean;
 //   style?: object;
 // }
 
@@ -17,22 +65,35 @@
 //   const Wrapper = scroll ? ScrollView : View;
 
 //   return (
-//     <KeyboardAvoidingView
-//       style={{ flex: 1 }}
-//       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-//     >
-//       <Wrapper
-//         style={[styles.container, style]}
-//         contentContainerStyle={scroll ? styles.contentContainer : undefined}
-//         showsVerticalScrollIndicator={false}
+//     <SafeAreaView style={styles.safeArea}>
+//       <KeyboardAvoidingView
+//         style={styles.flex}
+//         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+//         keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0} // adjust if header overlaps
 //       >
-//         {children}
-//       </Wrapper>
-//     </KeyboardAvoidingView>
+//         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+//           <Wrapper
+//             style={[styles.container, style]}
+//             contentContainerStyle={scroll ? styles.contentContainer : undefined}
+//             keyboardShouldPersistTaps="handled"
+//             showsVerticalScrollIndicator={false}
+//           >
+//             {children}
+//           </Wrapper>
+//         </TouchableWithoutFeedback>
+//       </KeyboardAvoidingView>
+//     </SafeAreaView>
 //   );
 // };
 
 // const styles = StyleSheet.create({
+//   safeArea: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//   },
+//   flex: {
+//     flex: 1,
+//   },
 //   container: {
 //     flex: 1,
 //   },
@@ -52,35 +113,48 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
+  ViewStyle,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface ScreenProps {
   children: React.ReactNode;
+  header?: React.ReactNode; // Fix header k liye alag prop
   scroll?: boolean;
-  style?: object;
+  style?: ViewStyle | ViewStyle[];
 }
 
-const Screen: React.FC<ScreenProps> = ({ children, scroll = true, style }) => {
+const Screen: React.FC<ScreenProps> = ({
+  children,
+  header,
+  scroll = true,
+  style,
+}) => {
   const Wrapper = scroll ? ScrollView : View;
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      {/* 1. Header hamesha bahar rahay ga taakay scroll na ho */}
+      {header && <View>{header}</View>}
+
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0} // adjust if header overlaps
+        // Agar keyboard header ko cover kare to offset barha saktay hain
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <Wrapper
-            style={[styles.container, style]}
-            contentContainerStyle={scroll ? styles.contentContainer : undefined}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-          >
-            {children}
-          </Wrapper>
-        </TouchableWithoutFeedback>
+        {/* 2. Touchable ko ScrollView ke andar hona chahiye ya sirf non-scrollable view par */}
+        <Wrapper
+          style={[styles.container, style]}
+          contentContainerStyle={scroll ? styles.contentContainer : undefined}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            {/* 3. Inner view zaroori hai taakay touch poori screen par kaam kare */}
+            <View style={{ flex: 1 }}>{children}</View>
+          </TouchableWithoutFeedback>
+        </Wrapper>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

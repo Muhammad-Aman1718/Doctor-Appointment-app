@@ -9,7 +9,7 @@ import {
 import { ChevronRight, LucideIcon } from 'lucide-react-native';
 
 // Props ki interface define kar letay hain
-interface MenuItemProps {
+interface ProfileNavItemProps {
   icon?: LucideIcon; // Lucide icon component ka type
   title?: string; // Button ka text
   onPress?: () => void; // Click function
@@ -18,7 +18,7 @@ interface MenuItemProps {
   style?: ViewStyle; // Additional container styling
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+const ProfileNavItem: React.FC<ProfileNavItemProps> = ({
   icon: Icon,
   title,
   onPress,
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MenuItem;
+export default ProfileNavItem;

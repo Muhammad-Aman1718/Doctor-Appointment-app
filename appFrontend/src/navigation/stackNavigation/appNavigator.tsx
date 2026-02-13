@@ -10,6 +10,8 @@ import EditProfile from '../../screens/main/profile/editProfile/editProfile';
 import Payment from '../../screens/main/payment/payment';
 import Help from '../../screens/main/help/help';
 import PrivacyPolicy from '../../screens/main/privacyPolicy/privacyPolicy';
+import NotificationSetting from '../../screens/main/home/notification/notificationSetting/notificationSetting';
+import ForgetPassword from '../../screens/auth/forgetPassword';
 
 const App = createNativeStackNavigator();
 
@@ -64,6 +66,16 @@ const AppNavigator = () => {
       <App.Screen
         name="PrivacyPolicy"
         component={PrivacyPolicy}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="NotificationSetting"
+        component={NotificationSetting}
+        options={{ headerShown: false }}
+      />
+      <App.Screen
+        name="ForgetPassword"
+        component={ForgetPassword}
         options={{ headerShown: false }}
       />
     </App.Navigator>

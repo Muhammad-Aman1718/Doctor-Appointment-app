@@ -1,18 +1,33 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { KeyRound, Lightbulb, User } from 'lucide-react-native';
+import { useAppNavigation } from '../../../../hooks/useAppNavigation';
 import Screen from '../../../../components/common/Screen';
 import CustomHeader from '../../../../components/CustomHeader';
-import MenuItem from '../../../../components/buttons/MenuItem';
-import { KeyRound, Lightbulb, User } from 'lucide-react-native';
+import ProfileNavItem from '../../../../components/setting/ProfileNavItem';
 
 const Setting = () => {
+  const navigation = useAppNavigation();
+
   return (
     <Screen>
       <CustomHeader title="Setting" />
       <View>
-        <MenuItem icon={Lightbulb} title="Notification Setting" />
-        <MenuItem icon={KeyRound} title="Password Manager" />
-        <MenuItem icon={User} title="Delete Account" />
+        <ProfileNavItem
+          icon={Lightbulb}
+          title="Notification Setting"
+          onPress={() =>
+            navigation.navigate('App', { screen: 'NotificationSetting' })
+          }
+        />
+        <ProfileNavItem
+          icon={KeyRound}
+          title="Password Manager"
+          onPress={() =>
+            navigation.navigate('App', { screen: 'ForgetPassword' })
+          }
+        />
+        <ProfileNavItem icon={User} title="Delete Account" />
       </View>
     </Screen>
   );

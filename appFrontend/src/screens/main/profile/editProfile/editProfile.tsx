@@ -8,9 +8,10 @@ import AuthInput from '../../../../components/inputs/AuthInput';
 
 const EditProfile: React.FC = () => {
   return (
-    <Screen>
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
       <CustomHeader title="Profile" />
-      <View style={styles.scrollContent}>
+      <Screen style={styles.scrollContent}>
+        {/* <View style={styles.scrollContent}> */}
         {/* Profile Header */}
         <View style={styles.header}>
           <View style={styles.imageWrapper}>
@@ -32,8 +33,9 @@ const EditProfile: React.FC = () => {
         <TouchableOpacity style={styles.button} activeOpacity={0.8}>
           <Text style={styles.buttonText}>Update Profile</Text>
         </TouchableOpacity>
-      </View>
-    </Screen>
+        {/* </View> */}
+      </Screen>
+    </View>
   );
 };
 
