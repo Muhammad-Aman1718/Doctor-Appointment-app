@@ -10,9 +10,9 @@ import { ChevronRight, LucideIcon } from 'lucide-react-native';
 
 // Props ki interface define kar letay hain
 interface MenuItemProps {
-  icon: LucideIcon; // Lucide icon component ka type
-  title: string; // Button ka text
-  onPress: () => void; // Click function
+  icon?: LucideIcon; // Lucide icon component ka type
+  title?: string; // Button ka text
+  onPress?: () => void; // Click function
   showArrow?: boolean; // Optional (default true)
   iconColor?: string; // Optional color hex
   style?: ViewStyle; // Additional container styling
@@ -32,7 +32,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     >
       <View style={styles.leftSection}>
         <View style={[styles.iconContainer, { backgroundColor: `#CAD6FF` }]}>
-          <Icon size={24} color="#2260FF" strokeWidth={2} />
+          {Icon && <Icon size={24} color="#2260FF" strokeWidth={2} />}
         </View>
         <Text style={styles.title}>{title}</Text>
       </View>

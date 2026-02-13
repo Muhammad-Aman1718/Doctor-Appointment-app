@@ -20,13 +20,9 @@ const ProfileScreen = () => {
 
   return (
     <Screen>
-      {/* Profile Header */}
       <View style={styles.header}>
         <View style={styles.imageWrapper}>
-          <Image
-            source={ProfilePic} // Yahan apni image ka path dain
-            style={styles.profileImage}
-          />
+          <Image source={ProfilePic} style={styles.profileImage} />
         </View>
         <Text style={styles.userName}>John Doe</Text>
       </View>

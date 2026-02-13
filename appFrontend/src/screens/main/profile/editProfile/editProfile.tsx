@@ -1,94 +1,5 @@
-// import React from 'react';
-// import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-// import { Pencil } from 'lucide-react-native';
-// import Screen from '../../../../components/common/Screen';
-// import ProfilePic from '../../../../assets/imgs/profilePic.png';
-// import CustomHeader from '../../../../components/CustomHeader';
-// import AuthInput from '../../../../components/inputs/AuthInput';
-
-// const EditProfile = () => {
-//   return (
-//     <Screen>
-//       <CustomHeader title="Profile" />
-//       <View style={styles.header}>
-//         <View style={styles.imageWrapper}>
-//           <Image
-//             source={ProfilePic} // Yahan apni image ka path dain
-//             style={styles.profileImage}
-//           />
-//           <TouchableOpacity style={styles.editBadge}>
-//             <Pencil size={18} color="#CAD6FF" />
-//           </TouchableOpacity>
-//         </View>
-//         <Text style={styles.userName}>John Doe</Text>
-//       </View>
-//       <View>
-//         <AuthInput inputTitle="Full Name" placeHolder="John Doe" />
-//         <AuthInput inputTitle="Phone Number" placeHolder="+123456789" />
-//         <AuthInput inputTitle="Emial" placeHolder="JohnDoe@gmail.com" />
-//         <AuthInput inputTitle="Date Of Birth" placeHolder="DD / MM / YYYY" />
-//       </View>
-//       <TouchableOpacity>
-//         <Text>Update Profile</Text>
-//       </TouchableOpacity>
-//     </Screen>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   safeArea: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//   },
-//   container: {
-//     flex: 1,
-//   },
-//   header: {
-//     alignItems: 'center',
-//     marginTop: 40,
-//     marginBottom: 30,
-//   },
-//   imageWrapper: {
-//     position: 'relative',
-//   },
-//   profileImage: {
-//     width: 120,
-//     height: 120,
-//     borderRadius: 60,
-//   },
-//   editBadge: {
-//     position: 'absolute',
-//     bottom: 5,
-//     right: 5,
-//     backgroundColor: '#2260FF',
-//     width: 30,
-//     height: 30,
-//     borderRadius: 15,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   userName: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginTop: 15,
-//     color: '#000',
-//   },
-//   menuList: {
-//     paddingTop: 10,
-//   },
-// });
-
-// export default EditProfile;
-
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ScrollView,
-} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Pencil } from 'lucide-react-native';
 import Screen from '../../../../components/common/Screen';
 import ProfilePic from '../../../../assets/imgs/profilePic.png';
@@ -98,9 +9,8 @@ import AuthInput from '../../../../components/inputs/AuthInput';
 const EditProfile: React.FC = () => {
   return (
     <Screen>
-        <CustomHeader title="Profile" />
+      <CustomHeader title="Profile" />
       <View style={styles.scrollContent}>
-
         {/* Profile Header */}
         <View style={styles.header}>
           <View style={styles.imageWrapper}>
@@ -110,7 +20,6 @@ const EditProfile: React.FC = () => {
             </TouchableOpacity>
           </View>
         </View>
-
         {/* Inputs Section */}
         <View style={styles.inputContainer}>
           <AuthInput inputTitle="Full Name" placeHolder="John Doe" />
