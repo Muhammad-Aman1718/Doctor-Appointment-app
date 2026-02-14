@@ -12,6 +12,7 @@ import Help from '../../screens/main/help/help';
 import PrivacyPolicy from '../../screens/main/privacyPolicy/privacyPolicy';
 import NotificationSetting from '../../screens/main/home/notification/notificationSetting/notificationSetting';
 import ForgetPassword from '../../screens/auth/forgetPassword';
+import PasswordManager from '../../screens/main/home/setting/passwordManager/passwordManager';
 
 const App = createNativeStackNavigator();
 
@@ -74,8 +75,8 @@ const AppNavigator = () => {
         options={{ headerShown: false }}
       />
       <App.Screen
-        name="ForgetPassword"
-        component={ForgetPassword}
+        name="PasswordManager"
+        component={PasswordManager}
         options={{ headerShown: false }}
       />
     </App.Navigator>

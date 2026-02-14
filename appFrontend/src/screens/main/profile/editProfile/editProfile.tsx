@@ -8,19 +8,20 @@ import AuthInput from '../../../../components/inputs/AuthInput';
 
 const EditProfile: React.FC = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
-      <CustomHeader title="Profile" />
-      <Screen style={styles.scrollContent}>
-        {/* <View style={styles.scrollContent}> */}
-        {/* Profile Header */}
+    // Header prop use karne se ScrollView baki content ko move karega magar header fixed rahega
+    <Screen header={<CustomHeader title="Edit Profile" />}>
+      <View style={styles.contentWrapper}>
+        {/* Profile Image Section */}
         <View style={styles.header}>
           <View style={styles.imageWrapper}>
             <Image source={ProfilePic} style={styles.profileImage} />
             <TouchableOpacity style={styles.editBadge} activeOpacity={0.8}>
+              {/* StrokeWidth 3 se icon zyada bold aur clear dikhta hai */}
               <Pencil size={16} color="#FFFFFF" strokeWidth={3} />
             </TouchableOpacity>
           </View>
         </View>
+
         {/* Inputs Section */}
         <View style={styles.inputContainer}>
           <AuthInput inputTitle="Full Name" placeHolder="John Doe" />
@@ -29,20 +30,19 @@ const EditProfile: React.FC = () => {
           <AuthInput inputTitle="Date Of Birth" placeHolder="DD / MM / YYYY" />
         </View>
 
-        {/* Update Profile Button */}
+        {/* Update Profile Button - Pill Shape */}
         <TouchableOpacity style={styles.button} activeOpacity={0.8}>
           <Text style={styles.buttonText}>Update Profile</Text>
         </TouchableOpacity>
-        {/* </View> */}
-      </Screen>
-    </View>
+      </View>
+    </Screen>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollContent: {
-    paddingBottom: 40,
-    paddingHorizontal: 20, // Content ko sides sy space dainay k liye
+  contentWrapper: {
+    paddingHorizontal: 20,
+    paddingBottom: 40, // Neechay se extra space taakay button scroll ke end pe daba hua na lage
   },
   header: {
     alignItems: 'center',
@@ -69,25 +69,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#fff', // Image k upar badge clear dikhay
+    borderColor: '#fff',
   },
   inputContainer: {
-    gap: 15, // Inputs k darmiyan space (agar RN version support karta ho)
+    gap: 10, // Inputs ke darmiyan munasib gap
     marginBottom: 40,
   },
   button: {
     backgroundColor: '#2260FF',
     paddingVertical: 16,
-    borderRadius: 30, // Pill shape button
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    // iOS shadow
     shadowColor: '#2260FF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    elevation: 5, // Android shadow
-    marginTop: 20,
-    marginHorizontal: 10,
+    // Android elevation
+    elevation: 5,
+    marginTop: 10,
   },
   buttonText: {
     color: '#FFFFFF',

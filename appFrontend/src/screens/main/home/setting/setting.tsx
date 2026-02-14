@@ -24,7 +24,7 @@ const Setting = () => {
           icon={KeyRound}
           title="Password Manager"
           onPress={() =>
-            navigation.navigate('App', { screen: 'ForgetPassword' })
+            navigation.navigate('App', { screen: 'PasswordManager' })
           }
         />
         <ProfileNavItem icon={User} title="Delete Account" />
