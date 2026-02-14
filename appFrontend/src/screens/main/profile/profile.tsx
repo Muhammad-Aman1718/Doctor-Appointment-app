@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import {
   User,
   Heart,
@@ -8,15 +8,22 @@ import {
   Settings,
   CircleHelp,
   LogOut,
-  Pencil,
 } from 'lucide-react-native';
 import { useAppNavigation } from '../../../hooks/useAppNavigation';
 import ProfileNavItem from '../../../components/setting/ProfileNavItem';
 import Screen from '../../../components/common/Screen';
 import ProfilePic from '../../../assets/imgs/profilePic.png';
+import LogoutModal from '../../../components/common/LogoutModal';
 
 const ProfileScreen = () => {
   const navigation = useAppNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleLogout = () => {
+    setModalVisible(false);
+    console.log('Logged Out!');
+    // Yahan logout logic (Auth context clear karna wagera) likhein
+  };
 
   return (
     <Screen>
@@ -65,7 +72,12 @@ const ProfileScreen = () => {
           icon={LogOut}
           title="Logout"
           showArrow={false}
-          onPress={() => {}}
+          onPress={() => setModalVisible(true)}
+        />
+        <LogoutModal
+          isVisible={modalVisible}
+          onClose={() => setModalVisible(false)}
+          onLogout={handleLogout}
         />
       </View>
     </Screen>

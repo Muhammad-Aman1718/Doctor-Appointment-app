@@ -1,20 +1,7 @@
-// import React from 'react';
-// import { Text, View } from 'react-native';
-
-// const PrivacyPolicy = () => {
-//   return (
-//     <View>
-//       <Text>PrivacyPolicy</Text>
-//     </View>
-//   );
-// };
-
-// export default PrivacyPolicy;
-
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Screen from '../../../components/common/Screen';
-import CustomHeader from '../../../components/CustomHeader';
+import Screen from '../../../../components/common/Screen';
+import CustomHeader from '../../../../components/CustomHeader';
 
 const PrivacyPolicy: React.FC = () => {
   return (
