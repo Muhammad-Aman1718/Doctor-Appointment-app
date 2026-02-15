@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { KeyRound, Lightbulb, User } from 'lucide-react-native';
 import { useAppNavigation } from '../../../../hooks/useAppNavigation';
 import Screen from '../../../../components/common/Screen';
-import CustomHeader from '../../../../components/CustomHeader';
+import CustomHeader from '../../../../components/header/CustomHeader';
 import ProfileNavItem from '../../../../components/setting/ProfileNavItem';
 
 const Setting = () => {

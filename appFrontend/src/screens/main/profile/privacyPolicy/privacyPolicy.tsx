@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Screen from '../../../../components/common/Screen';
-import CustomHeader from '../../../../components/CustomHeader';
+import CustomHeader from '../../../../components/header/CustomHeader';
 
 const PrivacyPolicy: React.FC = () => {
   return (

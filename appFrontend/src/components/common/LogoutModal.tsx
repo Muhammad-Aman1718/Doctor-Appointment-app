@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   TouchableWithoutFeedback,
+  Dimensions,
 } from 'react-native';
 
 interface LogoutModalProps {
@@ -14,38 +15,51 @@ interface LogoutModalProps {
   onLogout: () => void;
 }
 
-const LogoutModal: React.FC<LogoutModalProps> = ({ isVisible, onClose, onLogout }) => {
+const LogoutModal: React.FC<LogoutModalProps> = ({
+  isVisible,
+  onClose,
+  onLogout,
+}) => {
   return (
     <Modal
-      animationType="fade"
+      animationType="slide" // Neeche se upar aane ke liye
       transparent={true}
       visible={isVisible}
       onRequestClose={onClose}
     >
-      {/* Background Overlay - Is par click karne se modal band ho jayega */}
       <TouchableWithoutFeedback onPress={onClose}>
         <View style={styles.overlay}>
           <TouchableWithoutFeedback>
-            {/* Modal Box */}
-            <View style={styles.modalContainer}>
+            <View style={styles.bottomSheet}>
+              {/* Top Indicator (Choti line jo design mein aksar hoti hai) */}
+              <View style={styles.indicator} />
+
               <Text style={styles.title}>Logout</Text>
-              <Text style={styles.subTitle}>are you sure you want to log out?</Text>
+              <Text style={styles.subTitle}>
+                are you sure you want to log out?
+              </Text>
 
               <View style={styles.buttonRow}>
                 {/* Cancel Button */}
-                <TouchableOpacity 
-                  style={[styles.button, styles.cancelBtn]} 
+                <TouchableOpacity
+                  style={[styles.button, styles.cancelBtn]}
                   onPress={onClose}
+                  activeOpacity={0.8}
                 >
-                  <Text style={[styles.btnText, styles.cancelText]}>Cancel</Text>
+                  <Text style={[styles.btnText, styles.cancelText]}>
+                    Cancel
+                  </Text>
                 </TouchableOpacity>
 
                 {/* Yes, Logout Button */}
-                <TouchableOpacity 
-                  style={[styles.button, styles.logoutBtn]} 
+                <TouchableOpacity
+                  style={[styles.button, styles.logoutBtn]}
                   onPress={onLogout}
+                  activeOpacity={0.8}
                 >
-                  <Text style={[styles.btnText, styles.logoutText]}>Yes, Logout</Text>
+                  <Text style={[styles.btnText, styles.logoutText]}>
+                    Yes, Logout
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -59,57 +73,60 @@ const LogoutModal: React.FC<LogoutModalProps> = ({ isVisible, onClose, onLogout 
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dim background
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#2260FF54',
+    // Semi-transparent background
+    justifyContent: 'flex-end', // Content ko bottom par rakhne ke liye
   },
-  modalContainer: {
-    width: '85%',
+  bottomSheet: {
     backgroundColor: 'white',
-    borderRadius: 30, // Rounded corners as per design
-    padding: 25,
+    borderTopLeftRadius: 40, // Top corners rounded
+    borderTopRightRadius: 40,
+    paddingHorizontal: 25,
+    paddingTop: 15,
+    paddingBottom: 40, // Bottom safe area space
     alignItems: 'center',
-    elevation: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
+    width: '100%',
+  },
+  indicator: {
+    width: 40,
+    height: 4,
+    backgroundColor: '#E0E0E0',
+    borderRadius: 2,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#2260FF', // Themed Blue
+    fontSize: 24,
+    fontWeight: '500',
+    color: '#2260FF', // Themed blue
     marginBottom: 10,
   },
   subTitle: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#000',
     textAlign: 'center',
-    marginBottom: 25,
-    fontWeight: '500',
+    marginBottom: 30,
   },
   buttonRow: {
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'space-between',
     gap: 15,
   },
   button: {
     flex: 1,
-    height: 50,
-    borderRadius: 25,
+    height: 56,
+    borderRadius: 30, // Pill shape buttons
     justifyContent: 'center',
     alignItems: 'center',
   },
   cancelBtn: {
-    backgroundColor: '#DDE6FF', // Soft blue
+    backgroundColor: '#DDE6FF', // Light blue background
   },
   logoutBtn: {
-    backgroundColor: '#2260FF', // Solid blue
+    backgroundColor: '#2260FF', // Solid blue background
   },
   btnText: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '500',
   },
   cancelText: {
     color: '#2260FF',

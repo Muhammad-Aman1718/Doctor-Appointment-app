@@ -6,7 +6,7 @@ import FacebookIcon from '../../assets/icons/facebook.svg';
 import FingerPrintIcon from '../../assets/icons/fingerPrint.svg';
 import AuthInput from '../../components/inputs/AuthInput';
 import Screen from '../../components/common/Screen';
-import CustomHeader from '../../components/CustomHeader';
+import CustomHeader from '../../components/header/CustomHeader';
 import WelcomeScreenBtn from '../../components/buttons/WelcomeScreenBtn';
 import GoogleFacebookBtn from '../../components/buttons/GoogleFacebookBtn';
 

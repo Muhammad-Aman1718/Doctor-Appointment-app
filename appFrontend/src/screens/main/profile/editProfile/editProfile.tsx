@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Pencil } from 'lucide-react-native';
 import Screen from '../../../../components/common/Screen';
 import ProfilePic from '../../../../assets/imgs/profilePic.png';
-import CustomHeader from '../../../../components/CustomHeader';
+import CustomHeader from '../../../../components/header/CustomHeader';
 import AuthInput from '../../../../components/inputs/AuthInput';
 
 const EditProfile: React.FC = () => {

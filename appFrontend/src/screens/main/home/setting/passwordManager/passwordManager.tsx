@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Screen from '../../../../../components/common/Screen';
-import CustomHeader from '../../../../../components/CustomHeader';
+import CustomHeader from '../../../../../components/header/CustomHeader';
 import PasswordManagerInput from '../../../../../components/inputs/PasswordManagerInput';
 import { useAppNavigation } from '../../../../../hooks/useAppNavigation';
 

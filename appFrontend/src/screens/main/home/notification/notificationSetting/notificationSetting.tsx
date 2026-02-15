@@ -19,7 +19,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Screen from '../../../../../components/common/Screen';
-import CustomHeader from '../../../../../components/CustomHeader';
+import CustomHeader from '../../../../../components/header/CustomHeader';
 import NotificationSettingToggle from '../../../../../components/setting/NotificationSettingToggle';
 
 const NotificationSetting = () => {

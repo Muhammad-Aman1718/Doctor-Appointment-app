@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import CustomHeader from '../../../../components/CustomHeader';
+import CustomHeader from '../../../../components/header/CustomHeader';
 import SearchIcon from '../../../../assets/icons/search.svg';
 import FilterIcon from '../../../../assets/icons/filter.svg';
 import Screen from '../../../../components/common/Screen';

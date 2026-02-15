@@ -73,7 +73,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import AuthInput from '../../components/inputs/AuthInput';
 import Screen from '../../components/common/Screen';
-import CustomHeader from '../../components/CustomHeader';
+import CustomHeader from '../../components/header/CustomHeader';
 import WelcomeScreenBtn from '../../components/buttons/WelcomeScreenBtn';
 
 const ForgetPassword = () => {

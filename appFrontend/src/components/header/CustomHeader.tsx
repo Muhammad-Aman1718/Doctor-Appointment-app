@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useAppNavigation } from '../hooks/useAppNavigation';
 import { ChevronLeft } from 'lucide-react-native';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 interface CustomHeaderProps {
   title?: string;
